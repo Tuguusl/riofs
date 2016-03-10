@@ -31,10 +31,10 @@
 
     <!-- The maximum number of keys returned in the response body. -->
     <keys_per_request type="uint">1000</keys_per_request>
-    
+
     <!-- part size for upload / download files (5mb is the minimal value) -->
     <part_size type="uint">5242880</part_size>
-    
+
     <!-- compatibility with s3fs: send HEAD request to S3 if file size is 0 to check if it's a directory 
          Greatly increases directory access time. Consider to disable this option. -->
     <check_empty_files type="boolean">True</check_empty_files>
@@ -49,6 +49,12 @@
     <!--
     <access_key_id type="string">### AWS Access Key ID ###</access_key_id>
     <secret_access_key type="string">### AWS Secret Access Key ###</secret_access_key>
+    -->
+
+    <!-- If using with IAM roles, use the AWS_SESSION_TOKEN environment variable or configuration file.
+         Uncomment the following line and replace ### strings with your data: -->
+    <!--
+    <session_token type="string">### Session Token ###</session_token>
     -->
 </s3>
 

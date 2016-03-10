@@ -49,11 +49,11 @@ riofs [options] [bucketname] [mountpoint]
 *   In order to allow other users to access a mounted directory:
 
     - make sure `/etc/fuse.conf` contains `user_allow_other` option
-  
+
     - launch RioFS with  `-o "allow_other"`  parameter
 
 * On OS X it is recommended to run RioFS with the `-o "direct_io"` parameter
- 
+
 * Default configuration is located at `$(prefix)/etc/riofs.conf.xml`
 
 * Use `./configure --with-libmagic=PATH` to guess the content-type of uploaded content (requires libmagic)
@@ -67,6 +67,14 @@ riofs [options] [bucketname] [mountpoint]
 * Send a USR2 signal to tell RioFS to reopen log file (useful for logrotate)
 
 * Send a TERM signal to unmount filesystem and terminate running RioFS instance (example: ```killall riofs```)
+
+* To use with IAM roles:
+
+  - acquire the credentials from http://169.254.169.254/latest/meta-data/iam/security-credentials/[ROLENAME]
+
+  - in addition to the AWS_ACCESS_KEY_ID, AWS_SECRET_KEY environment variables, also assign the token to AWS_SESSION_TOKEN
+
+  - alternatively use the session_token element in the xml configuration file
 
 ### Known limitations
 
